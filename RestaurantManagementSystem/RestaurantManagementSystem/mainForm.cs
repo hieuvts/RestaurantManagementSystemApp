@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace RestaurantManagementSystem
 {
-    public partial class MainForm : Form
+    public partial class mainForm : Form
     {
         UserControl uc_dashboard = new UC_dashboard();
+        UserControl uc_sale = new UC_sale();
+        UserControl uc_warehouse = new UC_warehouse();
 
-        public MainForm()
+        public mainForm()
         {
             InitializeComponent();
             
@@ -24,25 +26,28 @@ namespace RestaurantManagementSystem
         {
             Application.Exit();
         }
-
+        //
         private void pn_saleButton_Click(object sender, EventArgs e)
         {
-
+            pn_switchableWndw.Controls.Clear();
+            pn_switchableWndw.Controls.Add(uc_sale);
         }
 
         private void pn_dashboardButton_Click(object sender, EventArgs e)
         {
-
+            pn_switchableWndw.Controls.Clear();
+            pn_switchableWndw.Controls.Add(uc_dashboard);
         }
 
         private void pn_warehouseButton_Click(object sender, EventArgs e)
         {
-
+            pn_switchableWndw.Controls.Clear();
+            pn_switchableWndw.Controls.Add(uc_warehouse);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            pn_switchableWndw.Controls.Add(uc_dashboard);
+            
         }
     }
 }
