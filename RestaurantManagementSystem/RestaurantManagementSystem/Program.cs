@@ -16,7 +16,19 @@ namespace RestaurantManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainForm());
+            DialogResult result;
+            using (var loginForm = new loginForm())
+                result = loginForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //Nếu loginForm trả về dialogResult OK thì mở mainForm
+                Application.Run(new mainForm());
+            }
+            else
+            {
+                MessageBox.Show("Thông tin đăng nhập sai!");
+            }    
+            //Application.Run(new loginForm());
         }
     }
 }
