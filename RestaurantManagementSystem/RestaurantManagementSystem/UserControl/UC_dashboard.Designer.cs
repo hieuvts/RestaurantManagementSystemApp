@@ -34,8 +34,8 @@
             this.pn_monthlyEarning = new System.Windows.Forms.Panel();
             this.lb_monthlyEarning = new System.Windows.Forms.Label();
             this.pn_mostSellingItem = new System.Windows.Forms.Panel();
-            this.lb_mostSellingItem = new System.Windows.Forms.Label();
             this.dgv_mostSellingItem = new System.Windows.Forms.DataGridView();
+            this.lb_mostSellingItem = new System.Windows.Forms.Label();
             this.pn_weeklyEarning.SuspendLayout();
             this.pn_monthlyEarning.SuspendLayout();
             this.pn_mostSellingItem.SuspendLayout();
@@ -107,6 +107,15 @@
             this.pn_mostSellingItem.Size = new System.Drawing.Size(1020, 309);
             this.pn_mostSellingItem.TabIndex = 1;
             // 
+            // dgv_mostSellingItem
+            // 
+            this.dgv_mostSellingItem.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_mostSellingItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_mostSellingItem.Location = new System.Drawing.Point(3, 45);
+            this.dgv_mostSellingItem.Name = "dgv_mostSellingItem";
+            this.dgv_mostSellingItem.Size = new System.Drawing.Size(1012, 259);
+            this.dgv_mostSellingItem.TabIndex = 1;
+            // 
             // lb_mostSellingItem
             // 
             this.lb_mostSellingItem.AutoSize = true;
@@ -118,15 +127,6 @@
             this.lb_mostSellingItem.TabIndex = 0;
             this.lb_mostSellingItem.Text = "Những món bán chạy nhất:";
             // 
-            // dgv_mostSellingItem
-            // 
-            this.dgv_mostSellingItem.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_mostSellingItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_mostSellingItem.Location = new System.Drawing.Point(3, 45);
-            this.dgv_mostSellingItem.Name = "dgv_mostSellingItem";
-            this.dgv_mostSellingItem.Size = new System.Drawing.Size(1012, 259);
-            this.dgv_mostSellingItem.TabIndex = 1;
-            // 
             // UC_dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,7 +137,7 @@
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.pn_weeklyEarning);
             this.Name = "UC_dashboard";
-            this.Size = new System.Drawing.Size(1066, 565);
+            this.Size = new System.Drawing.Size(1066, 590);
             this.pn_weeklyEarning.ResumeLayout(false);
             this.pn_weeklyEarning.PerformLayout();
             this.pn_monthlyEarning.ResumeLayout(false);

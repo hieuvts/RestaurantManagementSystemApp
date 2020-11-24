@@ -17,7 +17,13 @@ namespace RestaurantManagementSystem
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+
+        private void bt_cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_save_Click(object sender, EventArgs e)
         {
 
         }

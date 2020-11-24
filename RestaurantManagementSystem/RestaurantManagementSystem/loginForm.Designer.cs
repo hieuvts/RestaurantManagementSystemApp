@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.pn_titleBar = new System.Windows.Forms.Panel();
+            this.lb_appTitle = new System.Windows.Forms.Label();
             this.pn_exitButton = new System.Windows.Forms.Panel();
             this.pn_login = new System.Windows.Forms.Panel();
-            this.lb_appTitle = new System.Windows.Forms.Label();
-            this.lb_username = new System.Windows.Forms.Label();
-            this.lb_password = new System.Windows.Forms.Label();
-            this.tb_username = new System.Windows.Forms.TextBox();
-            this.tb_password = new System.Windows.Forms.TextBox();
             this.bt_login = new System.Windows.Forms.Button();
+            this.tb_password = new System.Windows.Forms.TextBox();
+            this.tb_username = new System.Windows.Forms.TextBox();
+            this.lb_password = new System.Windows.Forms.Label();
+            this.lb_username = new System.Windows.Forms.Label();
+            this.lb_contact = new System.Windows.Forms.Label();
             this.pn_titleBar.SuspendLayout();
             this.pn_login.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,17 @@
             this.pn_titleBar.Size = new System.Drawing.Size(520, 50);
             this.pn_titleBar.TabIndex = 0;
             // 
+            // lb_appTitle
+            // 
+            this.lb_appTitle.AutoSize = true;
+            this.lb_appTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_appTitle.ForeColor = System.Drawing.Color.White;
+            this.lb_appTitle.Location = new System.Drawing.Point(204, 9);
+            this.lb_appTitle.Name = "lb_appTitle";
+            this.lb_appTitle.Size = new System.Drawing.Size(106, 33);
+            this.lb_appTitle.TabIndex = 3;
+            this.lb_appTitle.Text = "LOGIN";
+            // 
             // pn_exitButton
             // 
             this.pn_exitButton.BackgroundImage = global::RestaurantManagementSystem.Properties.Resources.cancel;
@@ -62,6 +74,7 @@
             // 
             // pn_login
             // 
+            this.pn_login.Controls.Add(this.lb_contact);
             this.pn_login.Controls.Add(this.bt_login);
             this.pn_login.Controls.Add(this.tb_password);
             this.pn_login.Controls.Add(this.tb_username);
@@ -72,36 +85,27 @@
             this.pn_login.Size = new System.Drawing.Size(520, 470);
             this.pn_login.TabIndex = 1;
             // 
-            // lb_appTitle
+            // bt_login
             // 
-            this.lb_appTitle.AutoSize = true;
-            this.lb_appTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_appTitle.ForeColor = System.Drawing.Color.White;
-            this.lb_appTitle.Location = new System.Drawing.Point(207, 9);
-            this.lb_appTitle.Name = "lb_appTitle";
-            this.lb_appTitle.Size = new System.Drawing.Size(106, 33);
-            this.lb_appTitle.TabIndex = 3;
-            this.lb_appTitle.Text = "LOGIN";
+            this.bt_login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_login.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_login.Location = new System.Drawing.Point(295, 289);
+            this.bt_login.Name = "bt_login";
+            this.bt_login.Size = new System.Drawing.Size(182, 56);
+            this.bt_login.TabIndex = 4;
+            this.bt_login.Text = "Login";
+            this.bt_login.UseVisualStyleBackColor = true;
+            this.bt_login.Click += new System.EventHandler(this.bt_login_Click);
             // 
-            // lb_username
+            // tb_password
             // 
-            this.lb_username.AutoSize = true;
-            this.lb_username.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.lb_username.Location = new System.Drawing.Point(55, 109);
-            this.lb_username.Name = "lb_username";
-            this.lb_username.Size = new System.Drawing.Size(151, 40);
-            this.lb_username.TabIndex = 0;
-            this.lb_username.Text = "Username:";
-            // 
-            // lb_password
-            // 
-            this.lb_password.AutoSize = true;
-            this.lb_password.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.lb_password.Location = new System.Drawing.Point(55, 213);
-            this.lb_password.Name = "lb_password";
-            this.lb_password.Size = new System.Drawing.Size(142, 40);
-            this.lb_password.TabIndex = 1;
-            this.lb_password.Text = "Password:";
+            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_password.Location = new System.Drawing.Point(238, 187);
+            this.tb_password.Name = "tb_password";
+            this.tb_password.Size = new System.Drawing.Size(239, 40);
+            this.tb_password.TabIndex = 3;
+            this.tb_password.UseSystemPasswordChar = true;
             // 
             // tb_username
             // 
@@ -113,27 +117,35 @@
             this.tb_username.TabIndex = 2;
             this.tb_username.UseSystemPasswordChar = true;
             // 
-            // tb_password
+            // lb_password
             // 
-            this.tb_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_password.Location = new System.Drawing.Point(238, 213);
-            this.tb_password.Name = "tb_password";
-            this.tb_password.Size = new System.Drawing.Size(239, 40);
-            this.tb_password.TabIndex = 3;
-            this.tb_password.UseSystemPasswordChar = true;
+            this.lb_password.AutoSize = true;
+            this.lb_password.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.lb_password.Location = new System.Drawing.Point(55, 187);
+            this.lb_password.Name = "lb_password";
+            this.lb_password.Size = new System.Drawing.Size(142, 40);
+            this.lb_password.TabIndex = 1;
+            this.lb_password.Text = "Password:";
             // 
-            // bt_login
+            // lb_username
             // 
-            this.bt_login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_login.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_login.Location = new System.Drawing.Point(165, 319);
-            this.bt_login.Name = "bt_login";
-            this.bt_login.Size = new System.Drawing.Size(182, 56);
-            this.bt_login.TabIndex = 4;
-            this.bt_login.Text = "Login";
-            this.bt_login.UseVisualStyleBackColor = true;
-            this.bt_login.Click += new System.EventHandler(this.bt_login_Click);
+            this.lb_username.AutoSize = true;
+            this.lb_username.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.lb_username.Location = new System.Drawing.Point(55, 109);
+            this.lb_username.Name = "lb_username";
+            this.lb_username.Size = new System.Drawing.Size(151, 40);
+            this.lb_username.TabIndex = 0;
+            this.lb_username.Text = "Username:";
+            // 
+            // lb_contact
+            // 
+            this.lb_contact.AutoSize = true;
+            this.lb_contact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_contact.Location = new System.Drawing.Point(12, 440);
+            this.lb_contact.Name = "lb_contact";
+            this.lb_contact.Size = new System.Drawing.Size(153, 21);
+            this.lb_contact.TabIndex = 5;
+            this.lb_contact.Text = "Hỗ trợ: 0123456789";
             // 
             // loginForm
             // 
@@ -165,5 +177,6 @@
         private System.Windows.Forms.TextBox tb_password;
         private System.Windows.Forms.TextBox tb_username;
         private System.Windows.Forms.Label lb_password;
+        private System.Windows.Forms.Label lb_contact;
     }
 }
