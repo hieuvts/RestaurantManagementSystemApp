@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.pn_topBar = new System.Windows.Forms.Panel();
             this.pn_exitButton = new System.Windows.Forms.Panel();
             this.lb_activatingAccount = new System.Windows.Forms.Label();
@@ -195,6 +196,7 @@
             this.Controls.Add(this.pn_leftTab);
             this.Controls.Add(this.pn_topBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Restaurant Management System";

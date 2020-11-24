@@ -20,7 +20,26 @@ namespace RestaurantManagementSystem
 
         private void bt_login_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (CheckIfPasswordCorrect())
+            {
+                this.Hide();  //Ẩn form Login
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không hợp lệ", "Đã có lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        bool CheckIfPasswordCorrect()
+        {
+            string stored_password = "123";
+            string entered_password = tb_password.Text.ToString();
+            int result = string.Compare(stored_password, entered_password);
+
+            if (result == 0)
+                return true;
+            else return false;
+        }
+
     }
 }

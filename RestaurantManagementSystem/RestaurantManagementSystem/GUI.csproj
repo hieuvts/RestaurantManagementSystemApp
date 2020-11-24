@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\BUS_ThemMonAn.cs" />
-    <Compile Include="DAL\ConnectionString.cs" />
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,8 +138,10 @@
     <None Include="Resources\cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
-    <Folder Include="GUI\" />
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{93e5fb70-cf77-4f73-a58f-9285a6abbf57}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />

@@ -26,7 +26,7 @@ namespace RestaurantManagementSystem
             }
             else
             {
-                MessageBox.Show("Thông tin đăng nhập sai!");
+                //
             }    
             //Application.Run(new loginForm());
         }

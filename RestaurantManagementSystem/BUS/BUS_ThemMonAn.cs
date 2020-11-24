@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using DAL;
-//using DTO;
+
 
 namespace RestaurantManagementSystem.BUS
 {
