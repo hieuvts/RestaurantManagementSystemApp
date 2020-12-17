@@ -64,7 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO.cs" />
+    <Compile Include="DTO_ACCOUNT.cs" />
+    <Compile Include="DTO_banAn.cs" />
+    <Compile Include="DTO_danhMucMonAn.cs" />
+    <Compile Include="DTO_hoaDon.cs" />
+    <Compile Include="DTO_khachHang.cs" />
+    <Compile Include="DTO_monAn.cs" />
+    <Compile Include="DTO_nhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

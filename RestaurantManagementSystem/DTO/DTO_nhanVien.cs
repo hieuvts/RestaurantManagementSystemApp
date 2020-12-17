@@ -16,7 +16,7 @@ namespace DTO
         public string SDTnhanVien {get; set; }
         public string ngayVaoLam {get; set; }
         public int viTriCongViec {get; set; }
-        public Product_DTO(int IDnhanVien, string tenNhanVien, string ngaySinhNhanVien, string gioiTinhNhanVien, string diaChiNhanVien, string SDTnhanVien, string ngayVaoLam, int viTriCongViec)
+        public DTO_nhanVien(int IDnhanVien, string tenNhanVien, string ngaySinhNhanVien, string gioiTinhNhanVien, string diaChiNhanVien, string SDTnhanVien, string ngayVaoLam, int viTriCongViec)
         {
            this.IDnhanVien = IDnhanVien;
            this.tenNhanVien = tenNhanVien;

@@ -14,7 +14,7 @@ namespace DTO
         public string dateCheckOut   { get; set; }
         public float totalPrice { get; set; }
         public float discount { get; set; }
-        public Product_DTO(int IDmonAn, int IDbanAn, string dateCheckIn, string dateCheckOut, float totalPrice, float discount)
+        public DTO_hoaDon(int IDmonAn, int IDbanAn, string dateCheckIn, string dateCheckOut, float totalPrice, float discount)
         {
             this.ID_hoaDon = ID_hoaDon;
             this.IDbanAn = IDbanAn;

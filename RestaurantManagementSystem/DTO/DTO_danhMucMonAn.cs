@@ -10,7 +10,7 @@ namespace DTO
     {
         public int IDmonAn { get; set; }
         public string tenDanhMuc { get; set; }
-        public Product_DTO(int IDmonAn, string tenDanhMuc)
+        public DTO_danhMucMonAn(int IDmonAn, string tenDanhMuc)
         {
            this.IDmonAn = IDmonAn;
            this.tenDanhMuc = tenDanhMuc;

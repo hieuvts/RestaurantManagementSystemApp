@@ -11,9 +11,9 @@ namespace DTO
         public int IDbanAn { get; set; }
         public int soBanAn { get; set; }
         public int tinhTrang { get; set; }
-        public Product_DTO(int IDbanAn, int soBanAn, int tinhTrang)
+        public DTO_banAn(int IDbanAn, int soBanAn, int tinhTrang)
         {
-            this.IDbanAnn = IDbanAn;
+            this.IDbanAn = IDbanAn;
             this.soBanAn = soBanAn;
             this.tinhTrang = tinhTrang;
         }

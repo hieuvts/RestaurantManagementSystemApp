@@ -10,9 +10,9 @@ namespace DTO
     {
         public int IDmonAn { get; set; }
         public string tenMonAn { get; set; }
-        public string giaMonAn { get; set; }
+        public float giaMonAn { get; set; }
         public int IDdanhMuc { get; set; }
-        public Product_DTO(int IDmonAn, string tenMonAn, float giaMonAn, int IDdanhMuc)
+        public DTO_monAn(int IDmonAn, string tenMonAn, float giaMonAn, int IDdanhMuc)
         {
             this.IDmonAn = IDmonAn;
             this.tenMonAn = tenMonAn;
