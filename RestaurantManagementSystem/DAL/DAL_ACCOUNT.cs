@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
+using Dapper;
 
 namespace DAL
 {
@@ -81,5 +82,4 @@ namespace DAL
             return data;
         }
     }
-
 }
