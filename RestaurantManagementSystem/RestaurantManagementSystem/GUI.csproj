@@ -74,11 +74,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl\UC_sale.cs">
+    <Compile Include="UserControl\UC_Sale.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UC_sale.Designer.cs">
-      <DependentUpon>UC_sale.cs</DependentUpon>
+    <Compile Include="UserControl\UC_Sale.Designer.cs">
+      <DependentUpon>UC_Sale.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UC_warehouse.cs">
       <SubType>UserControl</SubType>
@@ -109,7 +109,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControl\UC_sale.resx">
-      <DependentUpon>UC_sale.cs</DependentUpon>
+      <DependentUpon>UC_Sale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UC_warehouse.resx">
       <DependentUpon>UC_warehouse.cs</DependentUpon>

@@ -58,7 +58,7 @@ namespace DAL
             {
                 connection.Execute(query);
             }
-        }
+        }     
 
         public void UpdateData(string query)
         {
