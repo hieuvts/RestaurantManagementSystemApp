@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
+using Dapper;
 
 namespace DAL
 {
@@ -57,7 +58,7 @@ namespace DAL
             {
                 connection.Execute(query);
             }
-        }
+        }     
 
         public void UpdateData(string query)
         {
@@ -81,5 +82,4 @@ namespace DAL
             return data;
         }
     }
-
 }
