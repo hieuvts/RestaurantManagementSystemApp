@@ -14,7 +14,7 @@ namespace DAL
         public DataSet GetData()
         {
             DataSet data = new DataSet();
-            string Select_all = "select monAn.IDmonAn, monAn.tenMonAn, monAn.giaMonAn, monAn.soLuongMonAn, danhMucMonAn.tenDanhMuc from monAn, danhMucMonAn where monAn.IDdanhMuc = danhMucMonAn.IDdanhMuc";
+            string Select_all = "select * from monAn";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 connection.Open();
@@ -24,7 +24,19 @@ namespace DAL
             }
             return data;
         }
-
+        public DataSet GetDanhmuc()
+        {
+            DataSet data = new DataSet();
+            string Select_all = "select distinct danhmuc from monAn";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(Select_all, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            return data;
+        }
         public void Delete(int idmonan)
         {
             string Delete_from = "DELETE FROM monAn WHERE IDmonAn=@idmonan";

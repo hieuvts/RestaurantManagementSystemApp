@@ -13,7 +13,7 @@ namespace RestaurantManagementSystem
     public partial class mainForm : Form
     {
         UserControl uc_dashboard = new UC_dashboard();
-        UserControl uc_sale = new UC_sale();
+        UserControl uc_sale = new UC_Sale();
         UserControl uc_warehouse = new UC_warehouse();
 
         public mainForm()
