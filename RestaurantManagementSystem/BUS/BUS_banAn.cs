@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,14 @@ namespace BUS
         {
             listable = banAn_DAL.GET();
             return listable;
+        }
+        public DataSet getDataByIDBanAN(int idbanan)
+        {
+            return banAn_DAL.GetDataByIDbanAN(idbanan);
+        }
+        public DataSet getTrangThai()
+        {
+            return banAn_DAL.GetTrangThai();
         }
     }
 }

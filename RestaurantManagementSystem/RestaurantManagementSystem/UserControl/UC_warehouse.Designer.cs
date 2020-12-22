@@ -196,6 +196,7 @@
             this.soluong});
             this.dgv_danhSachMonAn.Location = new System.Drawing.Point(0, 0);
             this.dgv_danhSachMonAn.Name = "dgv_danhSachMonAn";
+            this.dgv_danhSachMonAn.ReadOnly = true;
             this.dgv_danhSachMonAn.Size = new System.Drawing.Size(618, 544);
             this.dgv_danhSachMonAn.TabIndex = 0;
             this.dgv_danhSachMonAn.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_danhSachMonAn_RowEnter);
@@ -205,6 +206,7 @@
             this.id.DataPropertyName = "IDnguyenLieu";
             this.id.HeaderText = "Column1";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // ten
@@ -212,12 +214,14 @@
             this.ten.DataPropertyName = "tenNguyenLieu";
             this.ten.HeaderText = "Tên nguyên liệu";
             this.ten.Name = "ten";
+            this.ten.ReadOnly = true;
             // 
             // soluong
             // 
             this.soluong.DataPropertyName = "soLuong";
             this.soluong.HeaderText = "Số lượng (Kg)";
             this.soluong.Name = "soluong";
+            this.soluong.ReadOnly = true;
             // 
             // UC_warehouse
             // 

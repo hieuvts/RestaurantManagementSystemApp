@@ -27,5 +27,33 @@ namespace DAL
                 return connection.Query<DTO_banAn>($"select * from banAn").AsList();
             }
         }
+        public DataSet GetDataByIDbanAN(int idbanan)
+        {
+            DataSet data = new DataSet();
+            string Select_all = "select * from banAn where IDbanAn=@idbanan";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                connection.Open();
+                SqlCommand cmdInsert = new SqlCommand(Select_all, connection);
+                cmdInsert.Parameters.Add("@idbanan", SqlDbType.Int).Value = idbanan;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmdInsert);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            return data;
+        }
+        public DataSet GetTrangThai()
+        {
+            DataSet data = new DataSet();
+            string Select_all = "SELECT distinct tinhTrang FROM banAn";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(Select_all, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            return data;
+        }
     }
 }

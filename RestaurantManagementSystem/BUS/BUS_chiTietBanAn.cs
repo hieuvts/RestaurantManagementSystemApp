@@ -20,5 +20,17 @@ namespace BUS
         {
             return chiTietBanAn_DAL.GetData(idbanan);
         }
+        public void Insert(int idbanan,int idmonan,int soluong)
+        {
+            chiTietBanAn_DAL.InsertData(idbanan, idmonan, soluong);
+        }
+        public void UpdateCountWhenExist(int idbanan, int idmonan, int soluong)
+        {
+            chiTietBanAn_DAL.UpdateCountWhenExist(idbanan, idmonan, soluong);
+        }
+        public void Delete(int idbanan,int idmonan)
+        {
+            chiTietBanAn_DAL.Delete(idbanan, idmonan);
+        }
     }
 }

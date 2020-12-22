@@ -14,7 +14,7 @@ namespace DAL
         public DataSet GetData()
         {
             DataSet data = new DataSet();
-            string Select_all = "select * from monAn";
+            string Select_all = "select idMonan,tenMonAn, danhmuc, giaMonAn from monAn";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 connection.Open();

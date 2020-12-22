@@ -20,6 +20,10 @@ namespace RestaurantManagementSystem
             loadTable();
             getDanhSachMonAn();
             getDanhMucMonAn();
+            pn_hoadon.Enabled = false;
+            pn_monan.Enabled = false;
+            panel3.Enabled = false;
+            btn_delete.Enabled = false;
         }
         BUS_banAn banAn_BUS = new BUS_banAn();
         string status;
@@ -27,6 +31,11 @@ namespace RestaurantManagementSystem
         BUS_chiTietBanAn chiTietBanAn_BUS = new BUS_chiTietBanAn();
         BUS_danhSachMonAn danhSachMonAn_BUS = new BUS_danhSachMonAn();
         float tongtien;
+        int tableID;
+        int monAnID;
+        int count;
+        int tempIDmonAN;
+        int tempIDbanAN;
         //Hiển thị danh sách bàn ăn
         public void loadTable()
         {
@@ -58,15 +67,19 @@ namespace RestaurantManagementSystem
        
         private void BanAn_Click(object sender, EventArgs e)
         {
-            int tableID = ((sender as Button).Tag as DTO_banAn).IDbanAn;
+            pn_hoadon.Enabled = true;
+            pn_monan.Enabled = true;
+            panel3.Enabled = true;
+            tableID = ((sender as Button).Tag as DTO_banAn).IDbanAn;
             Showdata(tableID);
-
-            totalPrice();
+            getTrangThaiBanAn();
+            
         }
 
         public void Showdata(int tableid)
         {
             dgv_hoadon.DataSource = chiTietBanAn_BUS.Get(tableid).Tables[0];
+            totalPrice();
         }
         public void totalPrice()
         {
@@ -83,14 +96,80 @@ namespace RestaurantManagementSystem
         public void getDanhSachMonAn()
         {
             cbb_danhsachmonan.DataSource = danhSachMonAn_BUS.Get().Tables[0];
-            
             cbb_danhsachmonan.DisplayMember = "tenMonAn";
-            
+            cbb_danhsachmonan.ValueMember = "IDmonAn";
         }
         public void getDanhMucMonAn()
         {
             cbb_danhmucmonan.DataSource = danhSachMonAn_BUS.GetDanhmuc().Tables[0];
             cbb_danhmucmonan.DisplayMember = "danhmuc";
+        }
+        public void themMonAnVaoBan()
+        {
+            monAnID = Convert.ToInt32(cbb_danhsachmonan.SelectedValue);
+            count = int.Parse(nmr_soluongmonan.Value.ToString());
+            if(count==0)
+            {
+                MessageBox.Show("Số lượng không thể bằng 0");
+                return;
+            }
+            checkExistData(tableID, monAnID, count);
+            //MessageBox.Show(cbb_danhsachmonan.SelectedValue.ToString());
+            chiTietBanAn_BUS.Insert(tableID, monAnID, count);
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            themMonAnVaoBan();
+            Showdata(tableID);
+        }
+        public void checkExistData(int tableID, int monAnID, int count)
+        {
+            for(int i=0;i<dgv_hoadon.Rows.Count-1;i++)
+            {
+                if(tableID== Convert.ToInt32(dgv_hoadon.Rows[i].Cells[0].Value)&&
+                    monAnID==Convert.ToInt32(dgv_hoadon.Rows[i].Cells[1].Value))
+                {
+                    chiTietBanAn_BUS.UpdateCountWhenExist(tableID, monAnID, count);
+                    Showdata(tableID);
+                }
+            }
+            return;
+        }
+        public void deleteData(int tableID, int monanID)
+        {
+            chiTietBanAn_BUS.Delete(tableID, monanID);
+            Showdata(tableID);
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            deleteData(tempIDbanAN, tempIDmonAN);
+        }
+
+        private void dgv_hoadon_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int numrow;
+            numrow = e.RowIndex;
+            try
+            {
+                if (numrow >= 0)
+                {
+                    tempIDbanAN = int.Parse(string.Copy(dgv_hoadon.Rows[numrow].Cells[0].Value.ToString()));
+                    tempIDmonAN = int.Parse(string.Copy(dgv_hoadon.Rows[numrow].Cells[1].Value.ToString()));
+                }
+                btn_delete.Enabled = true;
+            }
+            catch(Exception)
+            {
+
+            }
+        }
+        private void getTrangThaiBanAn()
+        {
+            cbb_trangthai.DataSource= banAn_BUS.getTrangThai().Tables[0];
+            cbb_trangthai.DisplayMember = "tinhTrang";
+            
         }
     }
 }
