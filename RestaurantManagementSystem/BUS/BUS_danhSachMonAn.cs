@@ -20,6 +20,10 @@ namespace BUS
         {
             return danhSachMonAn_DAL.GetData();
         }
+        public DataSet GetDanhmuc()
+        {
+            return danhSachMonAn_DAL.GetDanhmuc();
+        }
         public void Add(string tenmonan, float giamoan, int soluong, int iddanhmuc)
         {
             danhSachMonAn_DAL.InsertData(tenmonan,giamoan,soluong,iddanhmuc);

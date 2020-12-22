@@ -17,5 +17,6 @@ namespace DTO
             this.soBanAn = soBanAn;
             this.tinhTrang = tinhTrang;
         }
+      
     }
 }
