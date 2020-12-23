@@ -18,8 +18,6 @@ namespace RestaurantManagementSystem
         {
             InitializeComponent();
             loadTable();
-            getDanhSachMonAn();
-            getDanhMucMonAn();
             pn_hoadon.Enabled = false;
             pn_monan.Enabled = false;
             panel3.Enabled = false;
@@ -30,33 +28,35 @@ namespace RestaurantManagementSystem
         List<DTO_banAn> listTable = new List<DTO_banAn>();
         BUS_chiTietBanAn chiTietBanAn_BUS = new BUS_chiTietBanAn();
         BUS_danhSachMonAn danhSachMonAn_BUS = new BUS_danhSachMonAn();
+        BUS_hoaDon hoaDon_BUS = new BUS_hoaDon();
         float tongtien;
         int tableID;
         int monAnID;
         int count;
         int tempIDmonAN;
         int tempIDbanAN;
+        string cate;
+        int tinhtrang;
+        DateTime ngaylaphoadon;
         //Hiển thị danh sách bàn ăn
         public void loadTable()
         {
+            flp_danhSachBanAn.Controls.Clear();
             listTable = banAn_BUS.Get();
             foreach (DTO_banAn item in listTable)
             {
+               
                 Button banAn = new Button() { Width = 100, Height = 100 };
                 banAn.Tag = item;
                 switch (item.tinhTrang)
                 {
                     case 1:
-                        status = "Đang chờ món";
-                        banAn.BackColor = Color.Aqua;
-                        break;
-                    case 2:
-                        status = "Đang dùng";
-                        banAn.BackColor = Color.Red;
+                        status = "Có người";
+                        banAn.BackColor = Color.Yellow;
                         break;
                     default:
                         status = "Trống";
-                        banAn.BackColor = Color.Green;
+                        banAn.BackColor = Color.LightGreen;
                         break;
                 }
                 banAn.Text = item.soBanAn.ToString() + Environment.NewLine + status;
@@ -71,8 +71,9 @@ namespace RestaurantManagementSystem
             pn_monan.Enabled = true;
             panel3.Enabled = true;
             tableID = ((sender as Button).Tag as DTO_banAn).IDbanAn;
+            tinhtrang = ((sender as Button).Tag as DTO_banAn).tinhTrang;
             Showdata(tableID);
-            getTrangThaiBanAn();
+            getDanhMucMonAn();
             
         }
 
@@ -93,9 +94,10 @@ namespace RestaurantManagementSystem
             txtb_tongtien.Text = tongtien.ToString();
         }
 
-        public void getDanhSachMonAn()
+        public void getDanhSachMonAn(string cate)
         {
-            cbb_danhsachmonan.DataSource = danhSachMonAn_BUS.Get().Tables[0];
+            cate = cbb_danhmucmonan.SelectedValue.ToString();
+            cbb_danhsachmonan.DataSource = danhSachMonAn_BUS.getMonAnByDanhMuc(cate).Tables[0];
             cbb_danhsachmonan.DisplayMember = "tenMonAn";
             cbb_danhsachmonan.ValueMember = "IDmonAn";
         }
@@ -103,6 +105,9 @@ namespace RestaurantManagementSystem
         {
             cbb_danhmucmonan.DataSource = danhSachMonAn_BUS.GetDanhmuc().Tables[0];
             cbb_danhmucmonan.DisplayMember = "danhmuc";
+            cbb_danhmucmonan.ValueMember = "danhmuc";
+            cate = cbb_danhmucmonan.SelectedIndex.ToString();
+            getDanhSachMonAn(cate);
         }
         public void themMonAnVaoBan()
         {
@@ -113,9 +118,14 @@ namespace RestaurantManagementSystem
                 MessageBox.Show("Số lượng không thể bằng 0");
                 return;
             }
-            checkExistData(tableID, monAnID, count);
             //MessageBox.Show(cbb_danhsachmonan.SelectedValue.ToString());
+            if(!checkExistData(tableID,monAnID,count))
             chiTietBanAn_BUS.Insert(tableID, monAnID, count);
+            if (tinhtrang == 0)
+            {
+                banAn_BUS.UpdateStatus(tableID, 1);
+                loadTable();
+            }
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -123,7 +133,7 @@ namespace RestaurantManagementSystem
             themMonAnVaoBan();
             Showdata(tableID);
         }
-        public void checkExistData(int tableID, int monAnID, int count)
+        public bool checkExistData(int tableID, int monAnID, int count)
         {
             for(int i=0;i<dgv_hoadon.Rows.Count-1;i++)
             {
@@ -132,9 +142,10 @@ namespace RestaurantManagementSystem
                 {
                     chiTietBanAn_BUS.UpdateCountWhenExist(tableID, monAnID, count);
                     Showdata(tableID);
+                    return true;
                 }
             }
-            return;
+            return false;
         }
         public void deleteData(int tableID, int monanID)
         {
@@ -160,16 +171,30 @@ namespace RestaurantManagementSystem
                 }
                 btn_delete.Enabled = true;
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
+
         }
-        private void getTrangThaiBanAn()
+        private void cbb_danhmucmonan_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            cbb_trangthai.DataSource= banAn_BUS.getTrangThai().Tables[0];
-            cbb_trangthai.DisplayMember = "tinhTrang";
-            
+            getDanhSachMonAn(cate);
+        }
+
+        private void btn_payment_Click(object sender, EventArgs e)
+        {
+            addPayment();
+            banAn_BUS.UpdateStatus(tableID, 0);
+            chiTietBanAn_BUS.DeleteAll(tableID);
+            loadTable();
+            Showdata(tableID);
+        }
+
+        public void addPayment()
+        {
+            ngaylaphoadon = DateTime.Now;
+            hoaDon_BUS.InsertData(tongtien, ngaylaphoadon);
         }
     }
 }

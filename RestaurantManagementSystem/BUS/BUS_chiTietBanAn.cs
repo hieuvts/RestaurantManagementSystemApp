@@ -32,5 +32,9 @@ namespace BUS
         {
             chiTietBanAn_DAL.Delete(idbanan, idmonan);
         }
+        public void DeleteAll(int idbanan)
+        {
+            chiTietBanAn_DAL.DeleteAll(idbanan);
+        }
     }
 }

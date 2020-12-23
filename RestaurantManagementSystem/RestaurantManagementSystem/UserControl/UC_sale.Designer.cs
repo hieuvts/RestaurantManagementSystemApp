@@ -31,7 +31,14 @@ namespace RestaurantManagementSystem
         {
             this.pn_hoadon = new System.Windows.Forms.Panel();
             this.dgv_hoadon = new System.Windows.Forms.DataGridView();
+            this.idbanan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmonan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.danhmuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giamonan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pn_monan = new System.Windows.Forms.Panel();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nmr_soluongmonan = new System.Windows.Forms.NumericUpDown();
@@ -43,15 +50,6 @@ namespace RestaurantManagementSystem
             this.txtb_tongtien = new System.Windows.Forms.TextBox();
             this.btn_payment = new System.Windows.Forms.Button();
             this.flp_danhSachBanAn = new System.Windows.Forms.FlowLayoutPanel();
-            this.idbanan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idmonan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.danhmuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giamonan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbb_trangthai = new System.Windows.Forms.ComboBox();
             this.pn_hoadon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.pn_monan.SuspendLayout();
@@ -83,6 +81,46 @@ namespace RestaurantManagementSystem
             this.dgv_hoadon.TabIndex = 0;
             this.dgv_hoadon.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hoadon_RowEnter);
             // 
+            // idbanan
+            // 
+            this.idbanan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idbanan.DataPropertyName = "IDbanAn";
+            this.idbanan.HeaderText = "ID bàn ăn";
+            this.idbanan.Name = "idbanan";
+            this.idbanan.ReadOnly = true;
+            this.idbanan.Visible = false;
+            // 
+            // idmonan
+            // 
+            this.idmonan.DataPropertyName = "IDmonAn";
+            this.idmonan.HeaderText = "Id món ăn";
+            this.idmonan.Name = "idmonan";
+            this.idmonan.Visible = false;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "tenMonAn";
+            this.name.HeaderText = "Tên món ăn";
+            this.name.Name = "name";
+            // 
+            // danhmuc
+            // 
+            this.danhmuc.DataPropertyName = "danhMuc";
+            this.danhmuc.HeaderText = "Danh mục";
+            this.danhmuc.Name = "danhmuc";
+            // 
+            // giamonan
+            // 
+            this.giamonan.DataPropertyName = "giaMonAn";
+            this.giamonan.HeaderText = "Giá";
+            this.giamonan.Name = "giamonan";
+            // 
+            // soluong
+            // 
+            this.soluong.DataPropertyName = "soLuong";
+            this.soluong.HeaderText = "Số lượng";
+            this.soluong.Name = "soluong";
+            // 
             // pn_monan
             // 
             this.pn_monan.Controls.Add(this.btn_delete);
@@ -96,6 +134,16 @@ namespace RestaurantManagementSystem
             this.pn_monan.Name = "pn_monan";
             this.pn_monan.Size = new System.Drawing.Size(432, 70);
             this.pn_monan.TabIndex = 2;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(226, 38);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 21);
+            this.btn_delete.TabIndex = 6;
+            this.btn_delete.Text = "Xoá món";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // label3
             // 
@@ -147,11 +195,10 @@ namespace RestaurantManagementSystem
             this.cbb_danhmucmonan.Name = "cbb_danhmucmonan";
             this.cbb_danhmucmonan.Size = new System.Drawing.Size(158, 21);
             this.cbb_danhmucmonan.TabIndex = 0;
+            this.cbb_danhmucmonan.SelectedIndexChanged += new System.EventHandler(this.cbb_danhmucmonan_SelectedIndexChanged_1);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cbb_trangthai);
-            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtb_tongtien);
             this.panel3.Controls.Add(this.btn_payment);
@@ -164,7 +211,7 @@ namespace RestaurantManagementSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 88);
+            this.label1.Location = new System.Drawing.Point(3, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 18);
             this.label1.TabIndex = 8;
@@ -172,94 +219,27 @@ namespace RestaurantManagementSystem
             // 
             // txtb_tongtien
             // 
-            this.txtb_tongtien.Location = new System.Drawing.Point(99, 86);
+            this.txtb_tongtien.Location = new System.Drawing.Point(99, 45);
             this.txtb_tongtien.Name = "txtb_tongtien";
-            this.txtb_tongtien.Size = new System.Drawing.Size(330, 20);
+            this.txtb_tongtien.Size = new System.Drawing.Size(228, 20);
             this.txtb_tongtien.TabIndex = 7;
             // 
             // btn_payment
             // 
-            this.btn_payment.Location = new System.Drawing.Point(333, 5);
+            this.btn_payment.Location = new System.Drawing.Point(333, 17);
             this.btn_payment.Name = "btn_payment";
             this.btn_payment.Size = new System.Drawing.Size(96, 75);
             this.btn_payment.TabIndex = 4;
             this.btn_payment.Text = "Thanh toán";
             this.btn_payment.UseVisualStyleBackColor = true;
+            this.btn_payment.Click += new System.EventHandler(this.btn_payment_Click);
             // 
             // flp_danhSachBanAn
             // 
             this.flp_danhSachBanAn.Location = new System.Drawing.Point(3, 3);
             this.flp_danhSachBanAn.Name = "flp_danhSachBanAn";
-            this.flp_danhSachBanAn.Size = new System.Drawing.Size(622, 584);
+            this.flp_danhSachBanAn.Size = new System.Drawing.Size(625, 584);
             this.flp_danhSachBanAn.TabIndex = 4;
-            // 
-            // idbanan
-            // 
-            this.idbanan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idbanan.DataPropertyName = "IDbanAn";
-            this.idbanan.HeaderText = "ID bàn ăn";
-            this.idbanan.Name = "idbanan";
-            this.idbanan.ReadOnly = true;
-            this.idbanan.Visible = false;
-            // 
-            // idmonan
-            // 
-            this.idmonan.DataPropertyName = "IDmonAn";
-            this.idmonan.HeaderText = "Id món ăn";
-            this.idmonan.Name = "idmonan";
-            this.idmonan.Visible = false;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "tenMonAn";
-            this.name.HeaderText = "Tên món ăn";
-            this.name.Name = "name";
-            // 
-            // danhmuc
-            // 
-            this.danhmuc.DataPropertyName = "danhMuc";
-            this.danhmuc.HeaderText = "Danh mục";
-            this.danhmuc.Name = "danhmuc";
-            // 
-            // giamonan
-            // 
-            this.giamonan.DataPropertyName = "giaMonAn";
-            this.giamonan.HeaderText = "Giá";
-            this.giamonan.Name = "giamonan";
-            // 
-            // soluong
-            // 
-            this.soluong.DataPropertyName = "soLuong";
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.Name = "soluong";
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(226, 38);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 21);
-            this.btn_delete.TabIndex = 6;
-            this.btn_delete.Text = "Xoá món";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 18);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Trạng thái";
-            // 
-            // cbb_trangthai
-            // 
-            this.cbb_trangthai.FormattingEnabled = true;
-            this.cbb_trangthai.Location = new System.Drawing.Point(99, 33);
-            this.cbb_trangthai.Name = "cbb_trangthai";
-            this.cbb_trangthai.Size = new System.Drawing.Size(121, 21);
-            this.cbb_trangthai.TabIndex = 7;
             // 
             // UC_Sale
             // 
@@ -304,7 +284,5 @@ namespace RestaurantManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn giamonan;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.ComboBox cbb_trangthai;
-        private System.Windows.Forms.Label label4;
     }
 }

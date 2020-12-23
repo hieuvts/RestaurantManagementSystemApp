@@ -37,6 +37,28 @@ namespace DAL
             }
             return data;
         }
+        public DataSet GetMonAnByDanhMuc(string danhmuc)
+        {
+            DataSet data = new DataSet();
+            string Select_all = "select * from monAn where danhmuc like @danhmuc";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmdInsert = new SqlCommand(Select_all, connection);
+                    cmdInsert.Parameters.Add("@danhmuc", SqlDbType.NVarChar).Value = danhmuc;
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmdInsert);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+                catch(Exception)
+                {
+
+                }
+            }
+            return data;
+        }
         public void Delete(int idmonan)
         {
             string Delete_from = "DELETE FROM monAn WHERE IDmonAn=@idmonan";
@@ -55,9 +77,9 @@ namespace DAL
                     MessageBox.Show("Không thể xoá thông tin , xin vui lòng thử lại!", "Đã có lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
-        public void InsertData(string tenmonan, float giamoan, int soluong, int iddanhmuc)
+        public void InsertData(string tenmonan, string danhmuc, float giamoan)
         {
-            string Insert_into = "INSERT INTO monAn VALUES (@tenmonan,@giamonan,@soluongmonan,@iddanhmuc)";
+            string Insert_into = "INSERT INTO monAn VALUES (@tenmonan,@danhmuc, @giamonan)";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 try
@@ -67,9 +89,9 @@ namespace DAL
                     cmdSetDateFormat.ExecuteNonQuery();
                     SqlCommand cmdInsert = new SqlCommand(Insert_into, connection);
                     cmdInsert.Parameters.Add("@tenmonan", SqlDbType.NVarChar).Value = tenmonan;
+                    cmdInsert.Parameters.Add("@danhmuc", SqlDbType.NVarChar).Value = danhmuc;
                     cmdInsert.Parameters.Add("@giamonan", SqlDbType.Float).Value = giamoan;
-                    cmdInsert.Parameters.Add("@soluongmonan", SqlDbType.Int).Value = soluong;
-                    cmdInsert.Parameters.Add("@iddanhmuc", SqlDbType.NVarChar).Value = iddanhmuc;
+                    
                     cmdInsert.ExecuteNonQuery();
                     connection.Close();
                     MessageBox.Show("Thêm dữ liệu thành công!");

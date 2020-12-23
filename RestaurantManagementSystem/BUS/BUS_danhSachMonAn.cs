@@ -24,9 +24,9 @@ namespace BUS
         {
             return danhSachMonAn_DAL.GetDanhmuc();
         }
-        public void Add(string tenmonan, float giamoan, int soluong, int iddanhmuc)
+        public void Add(string tenmonan,string danhmuc, float giamoan)
         {
-            danhSachMonAn_DAL.InsertData(tenmonan,giamoan,soluong,iddanhmuc);
+            danhSachMonAn_DAL.InsertData(tenmonan,danhmuc, giamoan);
         }
         public void Delete(int idmonan)
         {
@@ -35,6 +35,10 @@ namespace BUS
         public void Update(int idmonan, string tenmonan, float giamoan, int soluong, int iddanhmuc)
         {
             danhSachMonAn_DAL.UpdateData(idmonan,tenmonan,giamoan,soluong,iddanhmuc);
+        }
+        public DataSet getMonAnByDanhMuc(string danhmuc)
+        {
+            return danhSachMonAn_DAL.GetMonAnByDanhMuc(danhmuc);
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="ConnectionString.cs" />
     <Compile Include="DAL_ACCOUNT.cs" />
     <Compile Include="DAL_chiTietBanAn.cs" />
+    <Compile Include="DAL_hoaDon.cs" />
     <Compile Include="DAL_nguyenLieu.cs" />
     <Compile Include="DAL_danhSachMonAn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

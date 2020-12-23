@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BUS_banAn.cs" />
     <Compile Include="BUS_chiTietBanAn.cs" />
+    <Compile Include="BUS_hoaDon.cs" />
     <Compile Include="BUS_nguyenLieu.cs" />
     <Compile Include="BUS_danhSachMonAn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

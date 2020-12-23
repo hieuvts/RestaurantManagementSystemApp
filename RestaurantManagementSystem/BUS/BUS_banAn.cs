@@ -22,9 +22,13 @@ namespace BUS
         {
             return banAn_DAL.GetDataByIDbanAN(idbanan);
         }
-        public DataSet getTrangThai()
+        public DataSet getTrangThai(int idbanan)
         {
-            return banAn_DAL.GetTrangThai();
+            return banAn_DAL.GetTrangThai(idbanan);
+        }
+        public void UpdateStatus(int idbanan, int trangthai)
+        {
+            banAn_DAL.UpdateStatus(idbanan, trangthai);
         }
     }
 }

@@ -94,5 +94,24 @@ namespace DAL
                     MessageBox.Show("Không thể xoá thông tin , xin vui lòng thử lại!", "Đã có lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
+        public void DeleteAll(int idbanan)
+        {
+            string Delete_from = "DELETE FROM chiTietBanAn WHERE IDbanAn=@idbanan";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmdInsert = new SqlCommand(Delete_from, connection);
+                    
+                    cmdInsert.Parameters.Add("@idbanan", SqlDbType.Int).Value = idbanan;
+                    cmdInsert.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show("Thanh toán thành công!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không thể xoá thông tin , xin vui lòng thử lại!", "Đã có lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+        }
     }
 }
