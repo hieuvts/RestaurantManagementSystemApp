@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.pn_weeklyEarning = new System.Windows.Forms.Panel();
-            this.lb_weeklyEarning = new System.Windows.Forms.Label();
+            this.txtb_tongdoanhthu = new System.Windows.Forms.TextBox();
+            this.LB_TONGDOANHTHU = new System.Windows.Forms.Label();
             this.lb_title = new System.Windows.Forms.Label();
-            this.pn_monthlyEarning = new System.Windows.Forms.Panel();
-            this.lb_monthlyEarning = new System.Windows.Forms.Label();
             this.pn_mostSellingItem = new System.Windows.Forms.Panel();
+            this.dgv_danhsachhoadon = new System.Windows.Forms.DataGridView();
+            this.IDhoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giatrihoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaylaphoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_mostSellingItem = new System.Windows.Forms.DataGridView();
             this.lb_mostSellingItem = new System.Windows.Forms.Label();
             this.pn_weeklyEarning.SuspendLayout();
-            this.pn_monthlyEarning.SuspendLayout();
             this.pn_mostSellingItem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachhoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mostSellingItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,23 +49,34 @@
             // 
             this.pn_weeklyEarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pn_weeklyEarning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_weeklyEarning.Controls.Add(this.lb_weeklyEarning);
+            this.pn_weeklyEarning.Controls.Add(this.txtb_tongdoanhthu);
+            this.pn_weeklyEarning.Controls.Add(this.LB_TONGDOANHTHU);
             this.pn_weeklyEarning.ForeColor = System.Drawing.Color.Black;
             this.pn_weeklyEarning.Location = new System.Drawing.Point(24, 113);
             this.pn_weeklyEarning.Name = "pn_weeklyEarning";
-            this.pn_weeklyEarning.Size = new System.Drawing.Size(370, 100);
+            this.pn_weeklyEarning.Size = new System.Drawing.Size(1016, 100);
             this.pn_weeklyEarning.TabIndex = 0;
             // 
-            // lb_weeklyEarning
+            // txtb_tongdoanhthu
             // 
-            this.lb_weeklyEarning.AutoSize = true;
-            this.lb_weeklyEarning.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_weeklyEarning.ForeColor = System.Drawing.Color.Black;
-            this.lb_weeklyEarning.Location = new System.Drawing.Point(6, 29);
-            this.lb_weeklyEarning.Name = "lb_weeklyEarning";
-            this.lb_weeklyEarning.Size = new System.Drawing.Size(189, 32);
-            this.lb_weeklyEarning.TabIndex = 0;
-            this.lb_weeklyEarning.Text = "Doanh thu tuần:";
+            this.txtb_tongdoanhthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtb_tongdoanhthu.Location = new System.Drawing.Point(211, 29);
+            this.txtb_tongdoanhthu.Multiline = true;
+            this.txtb_tongdoanhthu.Name = "txtb_tongdoanhthu";
+            this.txtb_tongdoanhthu.ReadOnly = true;
+            this.txtb_tongdoanhthu.Size = new System.Drawing.Size(228, 32);
+            this.txtb_tongdoanhthu.TabIndex = 1;
+            // 
+            // LB_TONGDOANHTHU
+            // 
+            this.LB_TONGDOANHTHU.AutoSize = true;
+            this.LB_TONGDOANHTHU.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_TONGDOANHTHU.ForeColor = System.Drawing.Color.Black;
+            this.LB_TONGDOANHTHU.Location = new System.Drawing.Point(6, 29);
+            this.LB_TONGDOANHTHU.Name = "LB_TONGDOANHTHU";
+            this.LB_TONGDOANHTHU.Size = new System.Drawing.Size(188, 32);
+            this.LB_TONGDOANHTHU.TabIndex = 0;
+            this.LB_TONGDOANHTHU.Text = "Tổng doanh thu";
             // 
             // lb_title
             // 
@@ -75,37 +89,52 @@
             this.lb_title.TabIndex = 1;
             this.lb_title.Text = "Dashboard";
             // 
-            // pn_monthlyEarning
-            // 
-            this.pn_monthlyEarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pn_monthlyEarning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_monthlyEarning.Controls.Add(this.lb_monthlyEarning);
-            this.pn_monthlyEarning.Location = new System.Drawing.Point(674, 113);
-            this.pn_monthlyEarning.Name = "pn_monthlyEarning";
-            this.pn_monthlyEarning.Size = new System.Drawing.Size(370, 100);
-            this.pn_monthlyEarning.TabIndex = 1;
-            // 
-            // lb_monthlyEarning
-            // 
-            this.lb_monthlyEarning.AutoSize = true;
-            this.lb_monthlyEarning.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_monthlyEarning.ForeColor = System.Drawing.Color.Black;
-            this.lb_monthlyEarning.Location = new System.Drawing.Point(14, 29);
-            this.lb_monthlyEarning.Name = "lb_monthlyEarning";
-            this.lb_monthlyEarning.Size = new System.Drawing.Size(203, 32);
-            this.lb_monthlyEarning.TabIndex = 0;
-            this.lb_monthlyEarning.Text = "Doanh thu tháng:";
-            // 
             // pn_mostSellingItem
             // 
             this.pn_mostSellingItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.pn_mostSellingItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_mostSellingItem.Controls.Add(this.dgv_danhsachhoadon);
             this.pn_mostSellingItem.Controls.Add(this.dgv_mostSellingItem);
             this.pn_mostSellingItem.Controls.Add(this.lb_mostSellingItem);
-            this.pn_mostSellingItem.Location = new System.Drawing.Point(24, 244);
+            this.pn_mostSellingItem.Location = new System.Drawing.Point(24, 246);
             this.pn_mostSellingItem.Name = "pn_mostSellingItem";
-            this.pn_mostSellingItem.Size = new System.Drawing.Size(1020, 309);
+            this.pn_mostSellingItem.Size = new System.Drawing.Size(1020, 307);
             this.pn_mostSellingItem.TabIndex = 1;
+            // 
+            // dgv_danhsachhoadon
+            // 
+            this.dgv_danhsachhoadon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_danhsachhoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_danhsachhoadon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDhoaDon,
+            this.giatrihoadon,
+            this.ngaylaphoadon});
+            this.dgv_danhsachhoadon.Location = new System.Drawing.Point(3, 45);
+            this.dgv_danhsachhoadon.Name = "dgv_danhsachhoadon";
+            this.dgv_danhsachhoadon.ReadOnly = true;
+            this.dgv_danhsachhoadon.Size = new System.Drawing.Size(1012, 257);
+            this.dgv_danhsachhoadon.TabIndex = 2;
+            // 
+            // IDhoaDon
+            // 
+            this.IDhoaDon.DataPropertyName = "IDhoaDon";
+            this.IDhoaDon.HeaderText = "ID hoá dơn";
+            this.IDhoaDon.Name = "IDhoaDon";
+            this.IDhoaDon.ReadOnly = true;
+            // 
+            // giatrihoadon
+            // 
+            this.giatrihoadon.DataPropertyName = "giatri";
+            this.giatrihoadon.HeaderText = "Giá trị hoá đơn";
+            this.giatrihoadon.Name = "giatrihoadon";
+            this.giatrihoadon.ReadOnly = true;
+            // 
+            // ngaylaphoadon
+            // 
+            this.ngaylaphoadon.DataPropertyName = "ngaylaphoadon";
+            this.ngaylaphoadon.HeaderText = "Ngày lập hoá đơn";
+            this.ngaylaphoadon.Name = "ngaylaphoadon";
+            this.ngaylaphoadon.ReadOnly = true;
             // 
             // dgv_mostSellingItem
             // 
@@ -123,9 +152,9 @@
             this.lb_mostSellingItem.ForeColor = System.Drawing.Color.Black;
             this.lb_mostSellingItem.Location = new System.Drawing.Point(3, 10);
             this.lb_mostSellingItem.Name = "lb_mostSellingItem";
-            this.lb_mostSellingItem.Size = new System.Drawing.Size(308, 32);
+            this.lb_mostSellingItem.Size = new System.Drawing.Size(222, 32);
             this.lb_mostSellingItem.TabIndex = 0;
-            this.lb_mostSellingItem.Text = "Những món bán chạy nhất:";
+            this.lb_mostSellingItem.Text = "Danh sách hoá đơn";
             // 
             // UC_dashboard
             // 
@@ -133,17 +162,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Controls.Add(this.pn_mostSellingItem);
-            this.Controls.Add(this.pn_monthlyEarning);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.pn_weeklyEarning);
             this.Name = "UC_dashboard";
             this.Size = new System.Drawing.Size(1066, 590);
             this.pn_weeklyEarning.ResumeLayout(false);
             this.pn_weeklyEarning.PerformLayout();
-            this.pn_monthlyEarning.ResumeLayout(false);
-            this.pn_monthlyEarning.PerformLayout();
             this.pn_mostSellingItem.ResumeLayout(false);
             this.pn_mostSellingItem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachhoadon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mostSellingItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,12 +180,15 @@
         #endregion
 
         private System.Windows.Forms.Panel pn_weeklyEarning;
-        private System.Windows.Forms.Label lb_weeklyEarning;
+        private System.Windows.Forms.Label LB_TONGDOANHTHU;
         private System.Windows.Forms.Label lb_title;
-        private System.Windows.Forms.Panel pn_monthlyEarning;
-        private System.Windows.Forms.Label lb_monthlyEarning;
         private System.Windows.Forms.Panel pn_mostSellingItem;
         private System.Windows.Forms.Label lb_mostSellingItem;
         private System.Windows.Forms.DataGridView dgv_mostSellingItem;
+        private System.Windows.Forms.TextBox txtb_tongdoanhthu;
+        private System.Windows.Forms.DataGridView dgv_danhsachhoadon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDhoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giatrihoadon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaylaphoadon;
     }
 }

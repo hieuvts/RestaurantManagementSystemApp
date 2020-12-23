@@ -11,7 +11,19 @@ namespace DAL
 {
     public class DAL_hoaDon
     {
-
+        public DataSet GetData()
+        {
+            DataSet data = new DataSet();
+            string Select_all = "select * from hoaDon";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(Select_all, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            return data;
+        }
         public void InsertData(float giatri, DateTime ngaylaphoadon)
         {
             string Insert_into = "INSERT INTO hoaDon VALUES (@giatrihoadon,@ngaylaphoadon)";

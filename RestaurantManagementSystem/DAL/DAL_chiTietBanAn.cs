@@ -106,7 +106,7 @@ namespace DAL
                     cmdInsert.Parameters.Add("@idbanan", SqlDbType.Int).Value = idbanan;
                     cmdInsert.ExecuteNonQuery();
                     connection.Close();
-                    MessageBox.Show("Thanh toán thành công!");
+                    
                 }
                 catch (Exception)
                 {
