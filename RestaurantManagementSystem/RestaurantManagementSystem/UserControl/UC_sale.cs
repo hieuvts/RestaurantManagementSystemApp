@@ -56,6 +56,7 @@ namespace RestaurantManagementSystem
                         break;
                     default:
                         status = "Trống";
+
                         banAn.BackColor = Color.LightGreen;
                         break;
                 }
