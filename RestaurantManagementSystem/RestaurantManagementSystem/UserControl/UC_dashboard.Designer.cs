@@ -39,6 +39,7 @@
             this.ngaylaphoadon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_mostSellingItem = new System.Windows.Forms.DataGridView();
             this.lb_mostSellingItem = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pn_weeklyEarning.SuspendLayout();
             this.pn_mostSellingItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachhoadon)).BeginInit();
@@ -156,16 +157,28 @@
             this.lb_mostSellingItem.TabIndex = 0;
             this.lb_mostSellingItem.Text = "Danh sách hoá đơn";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(925, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Làm mới";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UC_dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pn_mostSellingItem);
             this.Controls.Add(this.lb_title);
             this.Controls.Add(this.pn_weeklyEarning);
             this.Name = "UC_dashboard";
             this.Size = new System.Drawing.Size(1066, 590);
+            this.Load += new System.EventHandler(this.UC_dashboard_Load);
             this.pn_weeklyEarning.ResumeLayout(false);
             this.pn_weeklyEarning.PerformLayout();
             this.pn_mostSellingItem.ResumeLayout(false);
@@ -190,5 +203,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IDhoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn giatrihoadon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaylaphoadon;
+        private System.Windows.Forms.Button button1;
     }
 }

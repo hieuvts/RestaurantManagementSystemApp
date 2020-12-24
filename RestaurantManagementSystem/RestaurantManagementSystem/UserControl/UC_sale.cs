@@ -189,6 +189,7 @@ namespace RestaurantManagementSystem
             chiTietBanAn_BUS.DeleteAll(tableID);
             loadTable();
             Showdata(tableID);
+            
         }
 
         public void addPayment()

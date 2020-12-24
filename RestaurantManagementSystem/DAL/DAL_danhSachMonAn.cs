@@ -103,12 +103,11 @@ namespace DAL
             }
         }
 
-        public void UpdateData(int idmonan, string tenmonan, float giamoan, int soluong, int iddanhmuc)
+        public void UpdateData(int idmonan, string tenmonan,string danhmuc, float giamoan)
         {
             string Update_set = "UPDATE monAn SET tenMonAn=@tenmonan," +
-                "giaMonAn=@giamonan," +
-                "soLuongMonAn=@soluongmonan," +
-                "IDdanhmuc=@IDdanhmuc WHERE IDmonAn=@idmonan";
+                "danhmuc=@danhmuc," +
+                "giaMonAn=@giamonan WHERE IDmonAn=@idmonan";
             
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
@@ -120,16 +119,15 @@ namespace DAL
                     SqlCommand cmdInsert = new SqlCommand(Update_set, connection);
                     cmdInsert.Parameters.Add("@idmonan", SqlDbType.Int).Value = idmonan;
                     cmdInsert.Parameters.Add("@tenmonan", SqlDbType.NVarChar).Value = tenmonan;
+                    cmdInsert.Parameters.Add("@danhmuc", SqlDbType.NVarChar).Value = danhmuc;
                     cmdInsert.Parameters.Add("@giamonan", SqlDbType.Float).Value = giamoan;
-                    cmdInsert.Parameters.Add("@soluongmonan", SqlDbType.Int).Value = soluong;
-                    cmdInsert.Parameters.Add("@iddanhmuc", SqlDbType.NVarChar).Value = iddanhmuc;
                     cmdInsert.ExecuteNonQuery();
                     connection.Close();
                     MessageBox.Show("Sửa dữ liệu thành công!");
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    MessageBox.Show("Không thể thay đổi thông tin , xin vui lòng thử lại!", "Đã có lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.ToString());
                 }
             }
         }

@@ -34,5 +34,16 @@ namespace RestaurantManagementSystem
             }
             txtb_tongdoanhthu.Text = tongdoanhthu.ToString();
         }
+
+        private void UC_dashboard_Load(object sender, EventArgs e)
+        {
+            showData();
+            getTongDoanhThu();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UC_dashboard_Load(sender, e);
+        }
     }
 }

@@ -32,9 +32,9 @@ namespace BUS
         {
             danhSachMonAn_DAL.Delete(idmonan);
         }
-        public void Update(int idmonan, string tenmonan, float giamoan, int soluong, int iddanhmuc)
+        public void Update(int idmonan, string tenmonan, string danhmuc, float giamonan)
         {
-            danhSachMonAn_DAL.UpdateData(idmonan,tenmonan,giamoan,soluong,iddanhmuc);
+            danhSachMonAn_DAL.UpdateData(idmonan,tenmonan,danhmuc,giamonan);
         }
         public DataSet getMonAnByDanhMuc(string danhmuc)
         {
